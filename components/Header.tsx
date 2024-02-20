@@ -2,10 +2,10 @@
 
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
-import logoIcon from "@public/logo.svg";
-
+import { useState } from "react";
 const Header = () => {
+  const [mobileMenuOpen, setmobileMenuOpen] = useState(false);
+
   return (
     <header className="bg-gradient-to-r from-cyan-500 via-violet-600 to-fuchsia-500">
       <nav
