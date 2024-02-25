@@ -13,6 +13,41 @@ import {
   PlayCircleIcon,
 } from "@heroicons/react/20/solid";
 import { Popover, Transition } from "@headlessui/react";
+
+const products = [
+  {
+    name: "Book a Stay",
+    description: "At only the best locations in the world",
+    href: "#",
+    icon: HomeIcon,
+  },
+  {
+    name: "Book a Flight",
+    description: "With only the best prices",
+    href: "#",
+    icon: PaperAirplaneIcon,
+  },
+  {
+    name: "Contact our Support Team",
+    description: "Our team will help you with any problem",
+    href: "#",
+    icon: ChatBubbleLeftIcon,
+  },
+];
+
+const callsToAction = [
+  {
+    name: "See Demo Booking",
+    href: "#",
+    icon: PlayCircleIcon,
+  },
+  {
+    name: "Contact Support",
+    href: "#",
+    icon: PhoneIcon,
+  },
+];
+
 const Header = () => {
   const [mobileMenuOpen, setmobileMenuOpen] = useState(false);
 
@@ -62,7 +97,7 @@ const Header = () => {
         <div className="flex lg:hidden">
           <button
             type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white shadow-lg ring-1 ring-gray-900/5"
             onClick={() => setmobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
@@ -85,7 +120,45 @@ const Header = () => {
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-1"
             >
-              <Popover.Panel></Popover.Panel>
+              <Popover.Panel className="absolute bg-white -left-8 top-full z-10 mt-3 max-w-md w-screen overflow-hidden rounded-3xl">
+                <div className="p-4">
+                  {products.map((item) => (
+                    <div
+                      key={item.name}
+                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
+                    >
+                      <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-gray-200">
+                        <item.icon
+                          className="h-6 w-6 text-black group-hover:text-gray-600"
+                          aria-hidden="true"
+                        />
+                      </div>
+                      <div className="flex-auto">
+                        <a
+                          href={item.href}
+                          className="block font-semibold text-black"
+                        >
+                          {item.name}
+                          <span className="absolute inset-0" />
+                        </a>
+                        <p className="mt-1 text-black">{item.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="grid grid-col-2 divide-x divide-gray-900/5 bg-gray-50">
+                  {callsToAction.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-black "
+                    >
+                      <item.icon className="h-5 w-5 flex-none text-black" />
+                      {item.name}
+                    </a>
+                  ))}
+                </div>
+              </Popover.Panel>
             </Transition>
           </Popover>
         </Popover.Group>
