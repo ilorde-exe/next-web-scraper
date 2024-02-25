@@ -251,12 +251,35 @@ const Header = () => {
                             as="a"
                             key={item.name}
                             href={item.href}
-                          ></Disclosure.Button>
+                            className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-black hover:bg-gray-400 hover:bg-clip-padding hover:backdrop-filter hover:backdrop-blur-2xl hover:bg-opacity-5"
+                          >
+                            {item.name}
+                          </Disclosure.Button>
                         ))}
                       </Disclosure.Panel>
                     </>
                   )}
                 </Disclosure>
+                <a
+                  href="#"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-black hover:bg-gray-400 hover:bg-clip-padding hover:backdrop-filter hover:backdrop-blur-2xl hover:bg-opacity-5"
+                >
+                  About us
+                </a>
+                <a
+                  href="#"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-black hover:bg-gray-400 hover:bg-clip-padding hover:backdrop-filter hover:backdrop-blur-2xl hover:bg-opacity-5"
+                >
+                  Source Code
+                </a>
+                <div className="py-6">
+                  <a
+                    href="#"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-black hover:bg-gray-400 hover:bg-clip-padding hover:backdrop-filter hover:backdrop-blur-2xl hover:bg-opacity-5"
+                  >
+                    Log In
+                  </a>
+                </div>
               </div>
             </div>
           </div>
