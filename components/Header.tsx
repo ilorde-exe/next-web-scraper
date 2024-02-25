@@ -12,7 +12,7 @@ import {
   PhoneIcon,
   PlayCircleIcon,
 } from "@heroicons/react/20/solid";
-import { Popover, Transition } from "@headlessui/react";
+import { Dialog, Popover, Transition } from "@headlessui/react";
 
 const products = [
   {
@@ -161,8 +161,30 @@ const Header = () => {
               </Popover.Panel>
             </Transition>
           </Popover>
+          <a href="#" className="text-sm font-semibold leading-6 text-white">
+            About us
+          </a>
+          <a href="#" className="text-sm font-semibold leading-6 text-white">
+            Source Code
+          </a>
         </Popover.Group>
+
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <a href="#" className="text-sm font-semibold leading-6 text-white">
+            Log in
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
       </nav>
+
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setmobileMenuOpen}
+      >
+        <div></div>
+      </Dialog>
     </header>
   );
 };
