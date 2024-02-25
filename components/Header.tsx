@@ -1,10 +1,18 @@
 "use client";
 
-import React from "react";
+import React, { Fragment } from "react";
 import Link from "next/link";
 import { useState } from "react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
-
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+  ChevronDownIcon,
+  ChatBubbleLeftIcon,
+  HomeIcon,
+  PaperAirplaneIcon,
+  PhoneIcon,
+  PlayCircleIcon,
+} from "@heroicons/react/20/solid";
+import { Popover, Transition } from "@headlessui/react";
 const Header = () => {
   const [mobileMenuOpen, setmobileMenuOpen] = useState(false);
 
@@ -62,7 +70,25 @@ const Header = () => {
           </button>
         </div>
 
-        <Popover.Group className="hidden lg:flex lg:gap-x-12"></Popover.Group>
+        <Popover.Group className="hidden lg:flex lg:gap-x-12">
+          <Popover className="relative">
+            <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-white">
+              Stays
+              <ChevronDownIcon className="h-5 w-5 flex-none text-white"></ChevronDownIcon>
+            </Popover.Button>
+            <Transition
+              as={Fragment}
+              enter="transition ease-out duration-200"
+              enterFrom="opacity-0 translate-y-1"
+              enterTo="opacity-100 translate-y-0"
+              leave="transition ease-in duration-150"
+              leaveFrom="opacity-100 translate-y-0"
+              leaveTo="opacity-0 translate-y-1"
+            >
+              <Popover.Panel></Popover.Panel>
+            </Transition>
+          </Popover>
+        </Popover.Group>
       </nav>
     </header>
   );
