@@ -3,6 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import { useState } from "react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
+
 const Header = () => {
   const [mobileMenuOpen, setmobileMenuOpen] = useState(false);
 
@@ -47,8 +49,21 @@ const Header = () => {
             </div>
           </Link>
         </div>
+
+        {/* Mobile Navigation */}
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
+            onClick={() => setmobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+          </button>
+        </div>
+
+        <Popover.Group className="hidden lg:flex lg:gap-x-12"></Popover.Group>
       </nav>
-      Header
     </header>
   );
 };
